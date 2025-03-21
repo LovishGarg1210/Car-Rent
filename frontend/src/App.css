@@ -35,9 +35,189 @@ body {
     to {
       opacity: 1;
     }
+  }/* /* Parallax Background */
+.parallax1, .parallax2 {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+}
+
+.parallax1 {
+  background-image: url("../public/mini-coupe-high-speed-drive-road-with-front-lights.jpg");
+}
+
+.parallax2 {
+  background-image: url("../public/salesman-woman-looking-car-car-showroom.jpg");
+}
+
+/* Marquee (floating text) */
+.marquee {
+  position: relative;
+  width: 100%;
+}
+
+.marquee h1 {
+  color: rgb(135, 152, 207);
+  font-size: 50px;
+  font-weight: 800;
+  margin: 0;
+  padding: 20px;
+  position: absolute;
+  white-space: nowrap;
+  animation: float-left 5s linear infinite;
+}
+
+@keyframes float-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Parallax Container for Left-Right Layout */
+.parallax-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 99%;
+  margin: auto;
+  max-width: 1200px;
+  color: white;
+  padding: 40px 20px;
+  position: relative;
+  z-index: 1;
+  height: 600px;
+}
+
+/* Left Side (Text Content) */
+.parallax-left {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Professional Title Styling */
+.parallax-title {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #4400ff;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Subtitle Styling */
+.parallax-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  color: #837171;
+  opacity: 0.9;
+}
+
+/* Right Side (Image) */
+.parallax-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Car Image Styling */
+.parallax-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* CTA Button */
+.parallax-btn {
+  padding: 15px 40px;
+  border-radius: 30px;
+  background: #686bc2;
+  color: white;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 8px 20px #686bc2;
+}
+
+.parallax-btn:hover {
+  background-color: #6504e4;
+  transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .parallax-container {
+    padding: 30px 15px;
   }
   
-  @keyframes slideUp {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
+  .parallax-title {
+    font-size: 3.5rem;
+  }
+
+  .parallax-subtitle {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .parallax-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .parallax-left, .parallax-right {
+    flex: none;
+    width: 100%;
+  }
+
+  .parallax-title {
+    font-size: 3rem;
+  }
+
+  .parallax-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .parallax-image {
+    margin-top: 20px;
+    max-width: 80%;
+  }
+
+  .parallax-btn {
+    padding: 12px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .parallax-container {
+    padding: 10px;
+  }
+
+  .parallax-title {
+    font-size: 2.5rem;
+  }
+
+  .parallax-subtitle {
+    font-size: 1.2rem;
+  }
+
+  .parallax-image {
+    max-width: 100%;
+  }
+
+  .parallax-btn {
+    padding: 10px 25px;
+    font-size: 1rem;
+  }
+}
