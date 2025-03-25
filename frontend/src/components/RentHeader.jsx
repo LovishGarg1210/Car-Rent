@@ -93,7 +93,7 @@ const Header = () => {
 
           {/* Navigation Links for Mobile */}
           <nav className="flex flex-col items-center space-y-4 mt-4">
-            <a href="/Rent/cardetails" onClick={() => { navigate("/Rent/"); toggleMobileMenu(); }} className="text-gray-700 hover:text-blue-500 font-medium">Car Details</a>
+            <Link to="/Rent/cardetails" onClick={() => { navigate("/Rent/cardetails"); toggleMobileMenu(); }} className="text-gray-700 hover:text-blue-500 font-medium">Car Details</Link>
             <Link to="/Rent/booking" className="text-gray-700 hover:text-blue-500 font-medium" onClick={toggleMobileMenu}>Booking</Link>
             <Link to="#payment" className="text-gray-700 hover:text-blue-500 font-medium" onClick={toggleMobileMenu}>Payment</Link>
             <Link to="/" className="text-gray-700 hover:text-blue-500 font-medium" onClick={toggleMobileMenu}>Lend A Car</Link>

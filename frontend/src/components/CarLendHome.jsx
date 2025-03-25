@@ -138,7 +138,7 @@ const CarLendHome = () => {
                       <p className="text-gray-500 text-xs">per month</p>
                     </div>
                   </div>
-                  <Link to="/calculator" className="block w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white text-center rounded-lg font-medium transition">
+                  <Link to="/Lend/CarLended" className="block w-full py-3 px-4 bg-blue-600 hover:bg-blue-700 text-white text-center rounded-lg font-medium transition">
                     Calculate Your Earnings
                   </Link>
                 </div>

@@ -1,43 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 body {
-    font-family: 'Inter', sans-serif;
-  }
- /* Add these styles to your CSS file (e.g., index.css or App.css) */
+  font-family: 'Inter', sans-serif;
+}
 
 @keyframes float {
-    0% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-20px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
+  0% {
+    transform: translateY(0px);
   }
-  
-  @keyframes pulse {
-    0% {
-      opacity: 0.3;
-      transform: scale(1);
-    }
-    100% {
-      opacity: 0.8;
-      transform: scale(1.5);
-    }
+  50% {
+    transform: translateY(-20px);
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }/* /* Parallax Background */
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Parallax Background */
 .parallax1, .parallax2 {
-  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -47,17 +47,23 @@ body {
   min-height: 500px;
 }
 
+/* Desktop: Use fixed background */
+@media (min-width: 768px) {
+  .parallax1, .parallax2 {
+    background-attachment: fixed;
+  }
+}
+
+/* Mobile: Use scrolling background */
+@media (max-width: 767px) {
+  .parallax1, .parallax2 {
+    background-attachment: scroll;
+  }
+}
+
 .parallax1 {
   background-image: url("/mini-coupe-high-speed-drive-road-with-front-lights.jpg");
 }
-/* .parallax1 h1{
-  color: white;
-  font-size: 50px;
-  font-weight: 800;
-  text-align: left;
-
- 
-} */
 
 .parallax2 {
   background-image: url("/salesman-woman-looking-car-car-showroom.jpg");
@@ -67,14 +73,12 @@ body {
 .marquee {
   position: relative;
   width: 100%;
- 
 }
 
 .marquee h1 {
   color: rgb(135, 152, 207);
   font-size: 50px;
   font-weight: 800;
-  
   margin: 0;
   padding: 20px;
   position: absolute;
@@ -169,7 +173,7 @@ body {
   .parallax-container {
     padding: 30px 15px;
   }
-  
+
   .parallax-title {
     font-size: 3.5rem;
   }
