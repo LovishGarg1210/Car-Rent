@@ -51,8 +51,8 @@ const Navbar = () => {
           <a href="#how" className="block px-3 py-2 text-gray-800 hover:text-blue-600 font-medium">How It Works</a>
           <a href="#faq" className="block px-3 py-2 text-gray-800 hover:text-blue-600 font-medium">FAQ</a>
           <div className="flex flex-col space-y-2 pt-2">
-            <button className="px-4 py-2 text-blue-600 font-medium border border-blue-600 rounded-lg">Sign In</button>
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium">Register</button>
+            <button  onClick={(e)=>{navigate("/SignIn")}}  className="px-4 py-2 text-blue-600 font-medium border border-blue-600 rounded-lg">Sign In</button>
+            <button onClick={(e)=>{navigate("/Register")}} className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium">Register</button>
           </div>
         </div>
       </div>
