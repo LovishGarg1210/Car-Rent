@@ -4,7 +4,7 @@ import { ChevronDown, Search } from 'lucide-react'; // Import Search icon
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-const Header = () => {
+const LendHeader = () => {
   const [search, setSearch] = useState(''); 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false); // Toggle mobile menu state
   const navigate = useNavigate();
@@ -14,11 +14,11 @@ const Header = () => {
   };
 
   const handleRentCar = () => {
-    const userId = localStorage.getItem('userId');  // Check if email is stored in localStorage
+    const email = localStorage.getItem('email');  // Check if email is stored in localStorage
     const token = localStorage.getItem('token');  // Check if token is stored in localStorage
 
-    if (userId && token) {
-      navigate('/Rent/cardetails');  // Navigate to Rent a Car page if both are available
+    if (email && token) {
+      navigate('/Rent/');  // Navigate to Rent a Car page if both are available
     } else {
       navigate('/SignIn');  // Otherwise, navigate to login page
     }
@@ -33,7 +33,7 @@ const Header = () => {
       <div className="container mx-auto flex justify-between items-center px-4 md:px-8">
         {/* Logo */}
         <div className="text-2xl font-bold text-blue-600">
-          CarRental
+          CarLender
         </div>
 
         {/* Search Bar */}
@@ -49,11 +49,11 @@ const Header = () => {
 
         {/* Navigation Links for Desktop */}
         <nav className="hidden md:flex space-x-6 ml-6">
-        <Link to="/Rent/" className="text-gray-700 hover:text-blue-500 font-medium">Home</Link>
-        <Link to="/Rent/Cardetails" className="text-gray-700 hover:text-blue-500 font-medium">Cardetails</Link>
-          <Link to="/Rent/booking" className="text-gray-700 hover:text-blue-500 font-medium">Booking</Link>
-          <Link to="#payment" className="text-gray-700 hover:text-blue-500 font-medium">Payment</Link>
-          <Link to="/" className="text-gray-700 hover:text-blue-500 font-medium">Lend A Car</Link>
+        <Link to="/Lend/" className="text-gray-700 hover:text-blue-500 font-medium">Home</Link>
+        <Link to="/Lend/CarLend" className="text-gray-700 hover:text-blue-500 font-medium">CarLend</Link>
+          <Link to="/Lend/CarLended" className="text-gray-700 hover:text-blue-500 font-medium">Carlended</Link>
+          <Link to="/Lend/Bookings" className="text-gray-700 hover:text-blue-500 font-medium">Bookings</Link>
+          <Link to="/Lend/Payments" className="text-gray-700 hover:text-blue-500 font-medium">Payments</Link>
         </nav>
 
         {/* Mobile Menu Button */}
@@ -93,10 +93,12 @@ const Header = () => {
 
           {/* Navigation Links for Mobile */}
           <nav className="flex flex-col items-center space-y-4 mt-4">
-            <a href="/Rent/cardetails" onClick={() => { navigate("/Rent/"); toggleMobileMenu(); }} className="text-gray-700 hover:text-blue-500 font-medium">Car Details</a>
-            <Link to="/Rent/booking" className="text-gray-700 hover:text-blue-500 font-medium" onClick={toggleMobileMenu}>Booking</Link>
-            <Link to="#payment" className="text-gray-700 hover:text-blue-500 font-medium" onClick={toggleMobileMenu}>Payment</Link>
-            <Link to="/" className="text-gray-700 hover:text-blue-500 font-medium" onClick={toggleMobileMenu}>Lend A Car</Link>
+            <Link to="/Lend/" onClick={() => { navigate("/Lend/"); toggleMobileMenu(); }} className="text-gray-700 hover:text-blue-500 font-medium">Home</Link>
+            <Link to="/Lend/CarLend" className="text-gray-700 hover:text-blue-500 font-medium" onClick={toggleMobileMenu}>Carlend</Link>
+            <Link to="/Lend/CarLended" className="text-gray-700 hover:text-blue-500 font-medium" onClick={toggleMobileMenu}>CarLended</Link>
+            <Link to="/Lend/Bookings" className="text-gray-700 hover:text-blue-500 font-medium" onClick={toggleMobileMenu}>Booking</Link>
+            <Link to="/Lend/Payments" className="text-gray-700 hover:text-blue-500 font-medium" onClick={toggleMobileMenu}>Payments</Link>
+            
           </nav>
 
           {/* Rent a Car Button for Mobile */}
@@ -114,4 +116,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default LendHeader;

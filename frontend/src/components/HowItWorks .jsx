@@ -5,22 +5,22 @@ import { motion } from 'framer-motion';
 const HowItWorks = () => {
   const steps = [
     {
-      icon: <Search className="h-12 w-12 text-blue-600" />,
+      icon: <Search className="h-12 w-12 text-black" />,
       title: "Search & Compare",
       description: "Browse through our wide selection of cars and compare prices, features, and reviews."
     },
     {
-      icon: <Calendar className="h-12 w-12 text-blue-600" />,
+      icon: <Calendar className="h-12 w-12 text-black" />,
       title: "Book Your Car",
       description: "Choose your pickup and return dates, and book instantly with no hidden fees."
     },
     {
-      icon: <Key className="h-12 w-12 text-blue-600" />,
+      icon: <Key className="h-12 w-12 text-black" />,
       title: "Pick Up & Go",
       description: "Get the keys from our pickup location or the car owner and start your journey."
     },
     {
-      icon: <Car className="h-12 w-12 text-blue-600" />,
+      icon: <Car className="h-12 w-12 text-black" />,
       title: "Return & Review",
       description: "Drop off the car at the agreed location and share your experience."
     }
@@ -46,7 +46,7 @@ const HowItWorks = () => {
             >
               <div className="mb-4">
                 <motion.div
-                  className="bg-gradient-to-r from-blue-500 to-green-500 p-3 rounded-full"
+                  className="bg-blue-600 p-3 rounded-full"
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.5 }}
                 >

@@ -45,7 +45,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white shadow-md">
-          <a href="#home" className="block px-3 py-2 text-gray-800 hover:text-blue-600 font-medium">Home</a>
+          <a href="/" className="block px-3 py-2 text-gray-800 hover:text-blue-600 font-medium">Home</a>
           <a href="#cars" className="block px-3 py-2 text-gray-800 hover:text-blue-600 font-medium">Cars</a>
           <a href="#lend" className="block px-3 py-2 text-gray-800 hover:text-blue-600 font-medium">Lend Your Car</a>
           <a href="#how" className="block px-3 py-2 text-gray-800 hover:text-blue-600 font-medium">How It Works</a>

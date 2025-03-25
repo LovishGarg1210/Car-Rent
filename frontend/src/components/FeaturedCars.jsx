@@ -2,8 +2,10 @@
 // components/FeaturedCars.jsx
 import React from 'react';
 import { Star, Users, Gauge } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const FeaturedCars = () => {
+  const navigate=useNavigate();
   const cars = [
     {
       id: 1,
@@ -59,7 +61,7 @@ const FeaturedCars = () => {
             <h2 className="text-3xl font-bold text-gray-800">Featured Cars</h2>
             <p className="text-gray-600 mt-2">Explore our top-rated vehicles for your next journey</p>
           </div>
-          <button className="px-4 py-2 text-blue-600 border border-blue-600 rounded-lg font-medium hover:bg-blue-50">
+          <button onClick={(e)=>{navigate('/Rent/cardetails')}} className="px-4 py-2 text-blue-600 border border-blue-600 rounded-lg font-medium hover:bg-blue-50">
             View All Cars
           </button>
         </div>

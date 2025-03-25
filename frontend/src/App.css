@@ -48,23 +48,33 @@ body {
 }
 
 .parallax1 {
-  background-image: url("../public/mini-coupe-high-speed-drive-road-with-front-lights.jpg");
+  background-image: url("/mini-coupe-high-speed-drive-road-with-front-lights.jpg");
 }
+/* .parallax1 h1{
+  color: white;
+  font-size: 50px;
+  font-weight: 800;
+  text-align: left;
+
+ 
+} */
 
 .parallax2 {
-  background-image: url("../public/salesman-woman-looking-car-car-showroom.jpg");
+  background-image: url("/salesman-woman-looking-car-car-showroom.jpg");
 }
 
 /* Marquee (floating text) */
 .marquee {
   position: relative;
   width: 100%;
+ 
 }
 
 .marquee h1 {
   color: rgb(135, 152, 207);
   font-size: 50px;
   font-weight: 800;
+  
   margin: 0;
   padding: 20px;
   position: absolute;

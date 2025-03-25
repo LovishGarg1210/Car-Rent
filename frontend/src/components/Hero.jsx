@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, Car, Clock, MapPin, Users, ChevronRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const navigate = useNavigate();
-  const [pickupLocation, setPickupLocation] = useState('');
-  const [dropoffLocation, setDropoffLocation] = useState('');
-  const [pickupDate, setPickupDate] = useState('');
-  const [returnDate, setReturnDate] = useState('');
-  const [carType, setCarType] = useState('');
+
   const [activeImage, setActiveImage] = useState(0);
 
   // Background images for the slider
@@ -28,6 +25,16 @@ const Hero = () => {
 
   const handleRentCar = () => {
     navigate('/Rent');
+  };
+
+  const handleLendCar = () => {
+    navigate('/Lend');
+  };
+
+  // Animation variants
+  const textAnimation = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
   };
 
   return (
@@ -68,16 +75,37 @@ const Hero = () => {
 
       {/* Hero Content */}
       <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 text-white pt-16">
-        <div className="text-center mb-8 animate-fadeIn">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg animate-slideUp">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-100">
+        <motion.div
+          className="text-center mb-8"
+          initial="hidden"
+          animate="visible"
+          variants={textAnimation}
+          transition={{ duration: 0.8 }}
+        >
+          <motion.h1
+            className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-100 z-50">
               DriveEase
             </span>
-          </h1>
-          <p className="text-lg sm:text-xl mb-6 opacity-90 drop-shadow-md animate-slideUp animation-delay-200">
+          </motion.h1>
+          <motion.p
+            className="text-lg sm:text-xl mb-6 opacity-90 drop-shadow-md"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+          >
             Rent or Lend - Your Journey, Your Way
-          </p>
-          <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center animate-slideUp animation-delay-300">
+          </motion.p>
+          <motion.div
+            className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4 justify-center"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+          >
             <button
               onClick={handleRentCar}
               className="group bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center"
@@ -85,117 +113,18 @@ const Hero = () => {
               Rent a Car
               <ChevronRight className="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="group bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center">
+            <button
+              onClick={handleLendCar}
+              className="group bg-transparent border-2 border-white hover:bg-white hover:text-blue-900 px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center"
+            >
               Lend Your Car
               <ChevronRight className="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
             </button>
-          </div>
-        </div>
-
-        {/* Search Form with Glass Effect */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-xl shadow-2xl p-6 w-full max-w-lg md:max-w-4xl text-white border border-white/20 animate-fadeIn animation-delay-500">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="space-y-4 md:col-span-1">
-              <div className="relative group">
-                <label className="text-sm font-medium block mb-1 text-blue-100">Pick-up Location</label>
-                <div className="flex items-center border border-white/30 rounded-lg p-3 bg-white/5 group-hover:bg-white/10 transition-all duration-300">
-                  <MapPin className="h-5 w-5 text-blue-300 mr-2" />
-                  <input
-                    type="text"
-                    className="w-full bg-transparent outline-none text-blue-50 placeholder-blue-200/50"
-                    placeholder="City, Airport, etc."
-                    value={pickupLocation}
-                    onChange={(e) => setPickupLocation(e.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div className="relative group">
-                <label className="text-sm font-medium block mb-1 text-blue-100">Drop-off Location</label>
-                <div className="flex items-center border border-white/30 rounded-lg p-3 bg-white/5 group-hover:bg-white/10 transition-all duration-300">
-                  <MapPin className="h-5 w-5 text-blue-300 mr-2" />
-                  <input
-                    type="text"
-                    className="w-full bg-transparent outline-none text-blue-50 placeholder-blue-200/50"
-                    placeholder="Same as pick-up"
-                    value={dropoffLocation}
-                    onChange={(e) => setDropoffLocation(e.target.value)}
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-4 md:col-span-1">
-              <div className="relative group">
-                <label className="text-sm font-medium block mb-1 text-blue-100">Pick-up Date</label>
-                <div className="flex items-center border border-white/30 rounded-lg p-3 bg-white/5 group-hover:bg-white/10 transition-all duration-300">
-                  <Calendar className="h-5 w-5 text-blue-300 mr-2" />
-                  <input
-                    type="date"
-                    className="w-full bg-transparent outline-none text-blue-50"
-                    value={pickupDate}
-                    onChange={(e) => setPickupDate(e.target.value)}
-                  />
-                </div>
-              </div>
-
-              <div className="relative group">
-                <label className="text-sm font-medium block mb-1 text-blue-100">Return Date</label>
-                <div className="flex items-center border border-white/30 rounded-lg p-3 bg-white/5 group-hover:bg-white/10 transition-all duration-300">
-                  <Calendar className="h-5 w-5 text-blue-300 mr-2" />
-                  <input
-                    type="date"
-                    className="w-full bg-transparent outline-none text-blue-50"
-                    value={returnDate}
-                    onChange={(e) => setReturnDate(e.target.value)}
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="md:col-span-1">
-              <div className="space-y-4">
-                <div className="relative group">
-                  <label className="text-sm font-medium block mb-1 text-blue-100">Car Type</label>
-                  <div className="flex items-center border border-white/30 rounded-lg p-3 bg-white/5 group-hover:bg-white/10 transition-all duration-300">
-                    <Car className="h-5 w-5 text-blue-300 mr-2" />
-                    <select
-                      className="w-full bg-transparent outline-none text-blue-50"
-                      value={carType}
-                      onChange={(e) => setCarType(e.target.value)}
-                    >
-                      <option value="" className="bg-blue-900 text-white">
-                        All Car Types
-                      </option>
-                      <option value="economy" className="bg-blue-900 text-white">
-                        Economy
-                      </option>
-                      <option value="compact" className="bg-blue-900 text-white">
-                        Compact
-                      </option>
-                      <option value="luxury" className="bg-blue-900 text-white">
-                        Luxury
-                      </option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-6 text-center">
-            <button
-              onClick={handleRentCar}
-              className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 hover:shadow-lg flex items-center justify-center mx-auto"
-            >
-              Find a Car
-            </button>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );
 };
 
 export default Hero;
-

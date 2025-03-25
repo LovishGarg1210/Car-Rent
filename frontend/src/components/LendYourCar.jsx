@@ -1,8 +1,10 @@
 
 import React from 'react';
 import { DollarSign, ShieldCheck, Calendar, Clock } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const LendYourCar = () => {
+  const navigate=useNavigate();
   const benefits = [
     {
       icon: <DollarSign className="h-10 w-10 text-blue-600" />,
@@ -25,6 +27,11 @@ const LendYourCar = () => {
       description: "Get started in minutes. Our team will guide you through the entire process."
     }
   ];
+  const handleRegister=(e)=>{
+    e.preventDefault()
+    alert("succesfully registerd")
+    navigate('/Lend/CarLend');
+  }
 
   return (
     <section id="lend" className="py-16 bg-blue-50">
@@ -48,7 +55,7 @@ const LendYourCar = () => {
               ))}
             </div>
             
-            <button className="mt-8 bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg">
+            <button onClick={(e)=>{navigate('/Lend/CarLend')}} className="mt-8 bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg">
               Start Earning Today
             </button>
           </div>
@@ -96,7 +103,7 @@ const LendYourCar = () => {
                   placeholder="e.g. 50"
                 />
               </div>
-              <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700">
+              <button onClick={handleRegister} type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg font-medium hover:bg-blue-700">
                 Register Your Car
               </button>
             </form>

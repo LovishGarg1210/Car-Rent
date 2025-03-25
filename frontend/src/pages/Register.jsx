@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios'
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -14,11 +15,23 @@ export default function Register() {
       [name]: value,
     });
   };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add form submission logic here (API calls, validations, etc.)
-    console.log(formData);
+    
+    try {
+      // Simulate an API call to register the user
+      const response = await axios.post('https://car-rental-backend-1-7ej4.onrender.com/api/auth/register', formData);
+      
+      // Simulate success response (log data)
+      console.log('API Response:', response.data);
+
+      // Handle success - display a message, redirect, etc.
+      alert('Registration successful!');
+    } catch (error) {
+      // Handle error - display an error message, etc.
+      console.error('Error registering user:', error);
+      alert('Registration failed!');
+    }
   };
 
   return (

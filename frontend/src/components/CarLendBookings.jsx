@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const Carbooking = () => {
+const CarLendBookings = () => {
     // Mock booking data (you can replace this with API calls)
     const [bookings, setBookings] = useState([]);
 
@@ -87,4 +87,4 @@ const Carbooking = () => {
 
 // Function to set status color based on booking status
 
-export default Carbooking;
+export default CarLendBookings;

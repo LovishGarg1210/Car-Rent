@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
 export default function SignIn() {
   const navigate=useNavigate()
   const [formData, setFormData] = useState({
@@ -16,14 +16,29 @@ export default function SignIn() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    navigate('/')
-    // Add form submission logic here (API calls, validations, etc.)
-    console.log(formData);
-  };
 
+    try {
+      // Simulate an API call to login the user
+      const response = await axios.post('https://car-rental-backend-1-7ej4.onrender.com/api/auth/login', formData);
+
+      // Assuming the API returns a success response with user info or token
+      console.log('API Response:', response.data);
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('userId', response.data.id);
+
+      // Handle successful login (store token, redirect, etc.)
+      alert('Login successful!');
+      
+      // Navigate to home page or dashboard
+      navigate('/');
+    } catch (error) {
+      // Handle login error (show error message, etc.)
+      console.error('Login failed:', error);
+   
+    }
+  };
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-8 space-y-6 bg-white shadow-lg rounded-lg">
